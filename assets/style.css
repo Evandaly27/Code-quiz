@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+}
+
+:root {
+    --main-color: #CD4545;
+    --secodary-color: #F9ECEC;
+    --third-color: #89B7F3;
+    --fourth-color: #F8FE4E;
+}

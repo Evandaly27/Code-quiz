@@ -73,10 +73,10 @@ function buildQuiz() { // display the current quiz question
     </div>
     `;
 
-//     - We create a container to hold everything, and inside it, we create a section for the question and another for the answer buttons.
-//    - The 'question' will be shown as a big heading (h3) on the screen.
-//    - The 'answersHTML' will have all the buttons we made earlier.
-//    - When we put them together and show the container, the user will see the question and buttons to choose from.
+    //     - We create a container to hold everything, and inside it, we create a section for the question and another for the answer buttons.
+    //    - The 'question' will be shown as a big heading (h3) on the screen.
+    //    - The 'answersHTML' will have all the buttons we made earlier.
+    //    - When we put them together and show the container, the user will see the question and buttons to choose from.
 
     quizContainer.style.display = 'block';
     submitButton.style.display = 'block';
@@ -135,8 +135,8 @@ function showResults() {
 
     const initialsForm = document.getElementById('initials-form'); // grabs the element where the user enters their initials 
     initialsForm.style.display = 'block'; // makes the form visible  
-    
-    saveScoreButton.addEventListener('click', function () { 
+
+    saveScoreButton.addEventListener('click', function () {
         const initials = initialsInput.value.trim(); // get the initials entered and removes extra spaces
 
         if (initials !== '') { // if the user enters their initials it will save the score 

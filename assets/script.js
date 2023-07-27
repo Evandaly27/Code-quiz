@@ -14,3 +14,9 @@ const saveScoreButton = document.getElementById('save-score-btn');
 const viewHighscoresButton = document.getElementById('view-highscores-btn');
 const highscoresContainer = document.getElementById('highscores');
 const highscoreList = document.getElementById('highscore-list');
+
+const questionTimePenalty = 10; // time penalty of 10 seconds 
+let currentQuestion = 0; // represents the index of the current question being displayed 
+let score = 0; // score that will be updated during the quiz
+let timeLeft = 90; // 90 seconds for the quiz
+

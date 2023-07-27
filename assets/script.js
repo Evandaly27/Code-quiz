@@ -44,6 +44,34 @@ const quizData = [ // questions for quiz
     {
         question: 'Which of the following function of Array object calls a function for each element in the array?',
         answers: ['concat();', 'every();', 'filter();', 'forEach();'],
-        correctAnswer: 'forEach();' 
+        correctAnswer: 'forEach();'
     }
 ];
+
+function buildQuiz() { // display the current quiz question
+    const questionData = quizData[currentQuestion];  // retrieves the questions and answers data for the current question
+    const { question, answers } = questionData;
+
+    // Declare a constant variable `answersHTML` to store the generated HTML for the answer options
+    const answersHTML = answers.map(answer => `
+    <label>
+    <input tyoe="radio" name="question" value="${answer}">
+    ${answer}
+    </label>
+    `).join(''); //The `answers.map()` function is called on the `answers` array to iterate through each element
+    
+
+    quizContainer.innerHTML = `
+    <div class="question">
+    <h3>${question}</h3>
+    ${answersHTML}
+    </div>
+    `;
+
+    quizContainer.style.display = 'block';
+    submitButton.style.display = 'block';
+    resultContainer.style.display = 'none';
+    timerContainer.style.display = 'block';
+    scoreContainer.style.display = 'block';
+    currentScore.textContent = score;
+}

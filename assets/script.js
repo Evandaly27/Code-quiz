@@ -166,25 +166,25 @@ function showHighscores() { // displays the list of high scores on the page
     }
 }
 
-viewHighscoresButton.addEventListener('click', showHighscores);
+viewHighscoresButton.addEventListener('click', showHighscores); // activate the click on the view high scores button
 
-function startTimer() {
-    const timerInterval = setInterval(() => {
-        timeLeft--;
-        timeRemaining.textContent = timeLeft;
-        currentScore.textContent = score;
+function startTimer() { //starts the timer for quiz
+    const timerInterval = setInterval(() => { // sets up repeating interaval
+        timeLeft--; // decreases the time left by 1 
+        timeRemaining.textContent = timeLeft; // updates the text of time left
+        currentScore.textContent = score; // updates the current score 
 
-        if (timeLeft <= 0) {
+        if (timeLeft <= 0) { // if time reaches 0 stop the quiz
             clearInterval(timerInterval);
             showResults();
         }
     }, 1000);
 }
 
-startButton.addEventListener('click', function () {
-    this.style.display = 'none';
-    buildQuiz();
-    startTimer();
+startButton.addEventListener('click', function () { // when start button is clicked, it will build the quiz and start it 
+    this.style.display = 'none'; // hides the start button when the quiz starts 
+    buildQuiz(); // displays the first question 
+    startTimer(); // starts timer 
 });
 
-submitButton.addEventListener('click', showNextQuestion);
+submitButton.addEventListener('click', showNextQuestion); // shows the next question or quiz results 

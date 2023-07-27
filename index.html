@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Quiz Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/Code-quiz/assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Handjet:wght@300&display=swap"
+    rel="stylesheet">
+    <title>Quiz</title>
 </head>
 
 <body>
     <div class="container">
         <button id="view-highscores-btn">View Highscores</button>
-        <h1>Quiz Game</h1>
+        <h1>JavaScript Quiz</h1>
+        <p id="instructions"> Press start to begin the quiz. Select an answer from the choices. You will be deducted 10
+            seconds for each missed question. Good luck!</p>
+        </p>
         <button id="start-btn">Start Quiz</button>
         <div id="timer" style="display: none;">Time left: <span id="time-remaining">90</span> seconds</div>
         <div id="score" style="display: none;">Score: <span id="current-score">0</span></div>

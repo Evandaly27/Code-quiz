@@ -55,7 +55,7 @@ function buildQuiz() { // display the current quiz question
     // Declare a constant variable `answersHTML` to store the generated HTML for the answer options
     const answersHTML = answers.map(answer => `
     <label>
-    <input tyoe="radio" name="question" value="${answer}">
+    <input type="radio" name="question" value="${answer}">
     ${answer}
     </label>
     `).join('');
@@ -180,3 +180,11 @@ function startTimer() {
         }
     }, 1000);
 }
+
+startButton.addEventListener('click', function () {
+    this.style.display = 'none';
+    buildQuiz();
+    startTimer();
+});
+
+submitButton.addEventListener('click', showNextQuestion);

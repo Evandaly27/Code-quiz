@@ -18,3 +18,22 @@ body {
     width: 50%;
     margin: auto;
 }
+
+h1 {
+    font-family: 'Bungee Spice', cursive;
+    font-family: 'Handjet', cursive;
+    font-size: 70px;
+}
+
+#view-highscores-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#instructions {
+    font-size: 18px;
+    color: var(--secodary-color);
+    text-align: center;
+    margin: 20px 0;
+}

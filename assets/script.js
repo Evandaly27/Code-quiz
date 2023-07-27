@@ -58,8 +58,13 @@ function buildQuiz() { // display the current quiz question
     <input tyoe="radio" name="question" value="${answer}">
     ${answer}
     </label>
-    `).join(''); //The `answers.map()` function is called on the `answers` array to iterate through each element
-    
+    `).join('');
+    //    - For each answer in the 'answers' list, we create a button with its label using a special way called 'template string'.
+    //    - We also create a 'radio' button, so the user can choose only one answer.
+    //    - Each button will have its own label and text (answer text).
+    //    - We do this for all the answers and store them as a string in the 'answersHTML' variable.
+    //    - The 'answersHTML' variable will contain all the buttons together.
+
 
     quizContainer.innerHTML = `
     <div class="question">
@@ -68,10 +73,51 @@ function buildQuiz() { // display the current quiz question
     </div>
     `;
 
+//     - We create a container to hold everything, and inside it, we create a section for the question and another for the answer buttons.
+//    - The 'question' will be shown as a big heading (h3) on the screen.
+//    - The 'answersHTML' will have all the buttons we made earlier.
+//    - When we put them together and show the container, the user will see the question and buttons to choose from.
+
     quizContainer.style.display = 'block';
     submitButton.style.display = 'block';
     resultContainer.style.display = 'none';
     timerContainer.style.display = 'block';
     scoreContainer.style.display = 'block';
     currentScore.textContent = score;
+}
+
+function showNextQuestion() { // Function to show the next question or final results after the user submits an answer
+    const selectedOption = document.querySelector('input[name=question]:checked');   // Get the selected answer option for the current question
+
+    // Check if an answer option is selected
+    if (selectedOption) {
+        // Retrieve the user's answer and the correct answer for the current question
+        const userAnswer = selectedOption.value;
+        const correctAnswer = quizData[currentQuestion].correctAnswer;
+
+        // Check if the user's answer matches the correct answer
+        if (userAnswer === correctAnswer) {
+            // Increase the score and show the answer as green (for correct)
+            score++;
+            selectedOption.parentElement.style.color = 'green';
+        } else {
+            // Show the answer as red (for incorrect) and deduct time for penalty
+            selectedOption.parentElement.style.color = 'red';
+            timeLeft -= questionTimePenalty; // Subtract 10 seconds for an incorrect answer
+        }
+
+        // Move to the next question
+        currentQuestion++;
+        // Uncheck the selected answer for the next question
+        selectedOption.checked = false;
+
+        // Check if there are more questions to show
+        if (currentQuestion < quizData.length) {
+            // If there are more questions, display the next question
+            buildQuiz();
+        } else {
+            // If all questions are answered, show the final results
+            showResults();
+        }
+    }
 }

@@ -20,3 +20,30 @@ let currentQuestion = 0; // represents the index of the current question being d
 let score = 0; // score that will be updated during the quiz
 let timeLeft = 90; // 90 seconds for the quiz
 
+const quizData = [ // questions for quiz 
+    {
+        question: 'Which of the following keywords is used to define a variable in Javascript?',
+        answers: ['var', 'let', 'Both A and B', 'None of the above'],
+        correctAnswer: 'Both A and B'
+    },
+    {
+        question: 'JavaScript is a ___ -side programming language.',
+        answers: ['Client', 'Server', 'Both', 'None'],
+        correctAnswer: 'Both'
+    },
+    {
+        question: 'Which built-in method returns the calling string value converted to lower case?',
+        answers: ['toLowerCase()', 'toLower()', 'changeCase(case)2', 'None of the above.'],
+        correctAnswer: 'toLowerCase()'
+    },
+    {
+        question: 'What will the code return? Boolean(3 < 7)',
+        answers: ['true', 'false', 'NaN', 'SyntaxError'],
+        correctAnswer: 'true'
+    },
+    {
+        question: 'Which of the following function of Array object calls a function for each element in the array?',
+        answers: ['concat();', 'every();', 'filter();', 'forEach();'],
+        correctAnswer: 'forEach();' 
+    }
+];

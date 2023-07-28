@@ -100,11 +100,25 @@ function showNextQuestion() { // Function to show the next question or final res
             // Increase the score and show the answer as green (for correct)
             score++;
             selectedOption.parentElement.style.color = 'green';
+            const correctGif = document.createElement('img');
+            correctGif.src = 'https://media3.giphy.com/media/3o7TKGy6TBUPrjtQLC/200w.webp?cid=ecf05e47xstfboby9quyqb190n5noxz7abkv8c6fj55fr7dv&ep=v1_gifs_search&rid=200w.webp&ct=g'
+           correctGif.onload = function() {
+            quizContainer.appendChild(correctGif);
+           }
         } else {
             // Show the answer as red (for incorrect) and deduct time for penalty
             selectedOption.parentElement.style.color = 'red';
             timeLeft -= questionTimePenalty; // Subtract 10 seconds for an incorrect answer
+            const incorrectGif = document.createElement('img');
+            incorrectGif.src = 'https://media3.giphy.com/media/l0MYKnSyyXom5PPrO/200w.webp?cid=ecf05e47xstfboby9quyqb190n5noxz7abkv8c6fj55fr7dv&ep=v1_gifs_search&rid=200w.webp&ct=g'
+            incorrectGif.onload = function() {
+            quizContainer.appendChild(incorrectGif);
+            }
         }
+
+        setTimeout(() => {
+            quizContainer.removeChild(quizContainer.lastElementChild);
+        }, 2000);
 
         // Move to the next question
         currentQuestion++;
